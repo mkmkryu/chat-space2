@@ -1,49 +1,44 @@
 .top
-    .message
-        グループを作成しました
+  .message
+    グループを作成しました
         
 .leftside
-    .left-header
-        .left-header__name
-            test-user
-        =link_to "#" do
-            = fa_icon'cog', class: 'icon'
-        =link_to "#" do
-            = fa_icon 'pencil-square-o', class: 'icon'
+  .left-header
+    .left-header__name
+      test-user
+    =link_to "#" do
+      = fa_icon'cog', class: 'icon'
+    =link_to "#" do
+      = fa_icon 'pencil-square-o', class: 'icon'
         
-    .left-bottom
-        .left-bottom__name
-            test-user
-        .left-bottom__message
-            こんにちは！
+  .left-bottom
+    .left-bottom__name
+      test-user
+    .left-bottom__message
+      こんにちは！
 
 .rightside
-    .right-top
-        =link_to "groups/1/edit", class: "right-top__button" do
-            Edit
-        .right-top__group
-            test-group
-        .right-top__info
-            Member : test-user
-    .right-midle
-        .right-midle__info
-            .right-midle__info--name
-                test-user
-            .right-midle__info--date
-                2019/7/24(Wed) 16:49:01
-        .right-midle__message
-            こんにちは！
+  .right-top
+    =link_to "groups/1/edit", class: "right-top__button" do
+      Edit
+  	.right-top__group
+      test-group
+    .right-top__info
+      Member : test-user
+  .right-midle
+    .right-midle__info
+      .right-midle__info--name
+        test-user
+      .right-midle__info--date
+        2019/7/24(Wed) 16:49:01
+      .right-midle__message
+        こんにちは！
         
-    .text
-        %form
-            %input.text__message{type: 'text' , placeholder: 'type a message'}
-            .text__image
-                %label.text__image__icon
-                    = fa_icon 'picture-o', class: 'icon' 
-                    %input.hidden{type: 'file'}
-                    %input.text__send{type: 'submit' , value: 'Send'}
-        
-        
-          
-
-        
+  .text
+    %form
+      %input.text__message{type: 'text' , placeholder: 'type a message'}
+      .text__image
+        %label.text__image__icon
+          = fa_icon 'picture-o', class: 'icon' 
+          %input.hidden{type: 'file'}
+        %input.text__send{type: 'submit' , value: 'Send'}

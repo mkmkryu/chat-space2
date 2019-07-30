@@ -21,7 +21,7 @@
   .right-top
     =link_to "groups/1/edit", class: "right-top__button" do
       Edit
-  	.right-top__group
+    .right-top__group
       test-group
     .right-top__info
       Member : test-user
@@ -31,8 +31,8 @@
         test-user
       .right-midle__info--date
         2019/7/24(Wed) 16:49:01
-      .right-midle__message
-        こんにちは！
+    .right-midle__message
+      こんにちは！
         
   .text
     %form
@@ -41,4 +41,4 @@
         %label.text__image__icon
           = fa_icon 'picture-o', class: 'icon' 
           %input.hidden{type: 'file'}
-        %input.text__send{type: 'submit' , value: 'Send'}
+      %input.text__send{type: 'submit' , value: 'Send'}

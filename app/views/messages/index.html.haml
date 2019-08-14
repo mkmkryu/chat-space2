@@ -1,4 +1,3 @@
-        
 .leftside
   .left-header
     .left-header__name
@@ -9,10 +8,13 @@
       = fa_icon 'pencil-square-o', class: 'icon'
         
   .left-bottom
-    .left-bottom__name
-      test-user
-    .left-bottom__message
-      こんにちは！
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        .left-bottom__name
+          = group.name
+        .left-bottom__message
+          メッセージはまだありません
+
 
 .rightside
   .right-top

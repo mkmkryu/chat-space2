@@ -2,15 +2,6 @@ $w: #FFFFFF;
 $g: #999999;
 $gg: #434A54;
 $font-b: bold;
-.top{
-  background-color: #38AEF0;
-  width: 100vw;
-  height: 25px;
-    .message{
-    color: $w;
-    text-align: center;
-  }
-}
 .leftside {
   display: table-cell;
   width: 300px;
@@ -37,15 +28,19 @@ $font-b: bold;
   .left-bottom{
       background-color: #2f3e51;
       height: calc(100vh - 82px);
-      color: $w;
+      
         &__name{
           font-size: 15px;
           padding: 20px 0 0 20px;
+          color: $w;
+          text-decoration: none ;
         }
 
         &__message{
           font-size: 11px;
           padding: 5px 0 0 20px;
+          color: $w;
+          text-decoration: none ;
         }    
   }
 }

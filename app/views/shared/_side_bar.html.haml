@@ -1,0 +1,16 @@
+.leftside
+  .left-header
+    .left-header__name
+      =current_user.name
+    =link_to edit_user_path(current_user) do
+      = fa_icon'cog', class: 'icon'
+    =link_to new_group_path do
+      = fa_icon 'pencil-square-o', class: 'icon'
+        
+  .left-bottom
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        .left-bottom__name
+          = group.name
+        .left-bottom__message
+          メッセージはまだありません

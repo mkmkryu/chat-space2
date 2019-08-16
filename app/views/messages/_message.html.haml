@@ -1,0 +1,11 @@
+.right-item
+	.right-midle__info
+		.right-midle__info--name
+			= message.user.name
+		.right-midle__info--date
+			= message.created_at.strftime("%Y/%m/%d %H:%M")
+	.right-item__message
+		- if message.content.present?
+			%p.right-item__message-content
+				= message.content
+		= image_tag message.image.url, class: 'right-item__message-image' if message.image.present?

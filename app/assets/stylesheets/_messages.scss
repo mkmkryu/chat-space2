@@ -76,6 +76,7 @@ $font-b: bold;
       background-color: #fafafa;
       padding: 46px 40px;
       height: calc(100vh - 266px);
+      overflow: scroll;
       .right-item{
         padding-bottom: 40px;
         &__message{

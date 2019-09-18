@@ -18,10 +18,10 @@
 
 .rightside
   .right-top
-    =link_to "groups/1/edit", class: "right-top__button" do
+    =link_to "/groups/#{@group.id}/edit", class: "right-top__button" do
       Edit
     .right-top__group
-      test-group
+      = @group.name
     .right-top__info
       Member : test-user
   .right-midle

@@ -1,7 +1,7 @@
 $(function(){
 
   function buildMessage(message){
-    if(message.image){
+    message.image ? imhtml = ''  : imhtml = '<img class=right-item__message-image" src=${message.image}></img>';
       var html =  `<div class="right-item">
                     <div class="right-midle__info">
                       <div class="right-midle__info--name">
@@ -15,27 +15,9 @@ $(function(){
                       <p class="right-item__message-content">
                         ${message.content}
                       </p>
-                        <img class="right-item__message-image" src=${message.image}>
+                      ${imhtml}
                     </div>
                   </div>`
-    }else{
-      var html =  `<div class="right-item">
-                    <div class="right-midle__info">
-                      <div class="right-midle__info--name">
-                        ${message.user_name}
-                      </div>
-                      <div class="right-midle__info--date">
-                        ${message.created_at}
-                      </div>
-                    </div>
-                    <div class="right-item__message">
-                      <p class="right-item__message-content">
-                        ${message.content}
-                      </p>
-                    </div>
-                  </div>`
-
-    }
                 
     return html;
   }

@@ -41,7 +41,7 @@ $(function(){
       $('.right-midle').append(html);
       $('input').prop('disabled', false);
       $('.right-midle').animate({scrollTop: $('.right-midle')[0].scrollHeight}, 'fast');
-      $("#new_message.new_message")[0].reset;
+      $("#new_message")[0].reset();
     })
     
     .fail(function(){

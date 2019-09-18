@@ -1,7 +1,7 @@
 $(function(){
 
   function buildMessage(message){
-    message.image ? imhtml = ''  : imhtml = '<img class=right-item__message-image" src=${message.image}></img>';
+      var imhtml = message.image ? "<img class=right-item__message-image src=  " + message.image + "></img>" : '';
       var html =  `<div class="right-item">
                     <div class="right-midle__info">
                       <div class="right-midle__info--name">
@@ -39,12 +39,11 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message);
       $('.right-midle').append(html);
-      $('.text__message')[0].reset;
-      $('.text__message').val('');
       $('input').prop('disabled', false);
       $('.right-midle').animate({scrollTop: $('.right-midle')[0].scrollHeight}, 'fast');
+      $("#new_message.new_message")[0].reset;
     })
-
+    
     .fail(function(){
 			alert("メッセージの送信に失敗しました。");
     })

@@ -1,21 +1,41 @@
 $(function(){
 
   function buildMessage(message){
-    var html =  `<div class="right-item">
-                  <div class="right-midle__info">
-                    <div class="right-midle__info--name">
-                      ${message.user_name}
+    if(message.image){
+      var html =  `<div class="right-item">
+                    <div class="right-midle__info">
+                      <div class="right-midle__info--name">
+                        ${message.user_name}
+                      </div>
+                      <div class="right-midle__info--date">
+                        ${message.created_at}
+                      </div>
                     </div>
-                    <div class="right-midle__info--date">
-                      ${message.created_at}
+                    <div class="right-item__message">
+                      <p class="right-item__message-content">
+                        ${message.content}
+                      </p>
+                        <img class="right-item__message-image" src=${message.image}>
                     </div>
-                  </div>
-                  <div class="right-item__message">
-                    <p class="right-item__message-content">
-                      ${message.content}
-                    </p>
-                  </div>
-                </div>`
+                  </div>`
+    }else{
+      var html =  `<div class="right-item">
+                    <div class="right-midle__info">
+                      <div class="right-midle__info--name">
+                        ${message.user_name}
+                      </div>
+                      <div class="right-midle__info--date">
+                        ${message.created_at}
+                      </div>
+                    </div>
+                    <div class="right-item__message">
+                      <p class="right-item__message-content">
+                        ${message.content}
+                      </p>
+                    </div>
+                  </div>`
+
+    }
                 
     return html;
   }
@@ -37,6 +57,7 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message);
       $('.right-midle').append(html);
+      $('.text__message')[0].reset;
       $('.text__message').val('');
       $('input').prop('disabled', false);
       $('.right-midle').animate({scrollTop: $('.right-midle')[0].scrollHeight}, 'fast');

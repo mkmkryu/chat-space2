@@ -23,7 +23,9 @@
     .right-top__group
       = @group.name
     .right-top__info
-      Member : test-user
+      Member : 
+      - @group.users.each do |user|
+        = user.name
   .right-midle
     = render partial: 'message', collection: @messages
 

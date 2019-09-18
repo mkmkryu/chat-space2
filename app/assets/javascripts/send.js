@@ -32,12 +32,14 @@ $(function(){
       processData: false,
       contentType: false
     })
+    
 
     .done(function(message){
       var html = buildMessage(message);
       $('.right-midle').append(html);
       $('.text__message').val('');
       $('input').prop('disabled', false);
+      $('.right-midle').animate({scrollTop: $('.right-midle')[0].scrollHeight}, 'fast');
     })
 
     .fail(function(){

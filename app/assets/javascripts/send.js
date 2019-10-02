@@ -12,7 +12,7 @@ $(function(){
                       </div>
                     </div>
                     <div class="right-item__message">
-                      <p class="right-item__message-content">
+                      <p class="right-item__message-content" data-id = ${message.id}>
                         ${message.content}
                       </p>
                       ${imhtml}
@@ -22,10 +22,13 @@ $(function(){
     return html;
   }
 
+
   $("#new_message").on("submit",function(e){
     e.preventDefault();
-    var formData = new FormData(this);    
+    var formData = new FormData(this);
+    console.log(url);    
     var url = $(this).attr('action');
+    console.log(url);
     $.ajax({
       type: "POST",
       url: url,
@@ -33,9 +36,7 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false
-    })
-    
-
+    })    
     .done(function(message){
       var html = buildMessage(message);
       $('.right-midle').append(html);
@@ -48,4 +49,32 @@ $(function(){
 			alert("メッセージの送信に失敗しました。");
     })
   })
+
+
+  var reloadMessages = function() {
+    if(document.URL.match(/messages/)){
+    last_message_id = $('.right-item__message-content').last().data('id');
+    console.log(last_message_id);
+    $.ajax({
+      //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML = buildMessage(message);
+          $('.right-midle').append(insertHTML);
+          $('.right-midle').animate({scrollTop: $('.right-midle')[0].scrollHeight}, 'fast');
+        });
+    })
+    .fail(function() {
+      alert('自動更新に失敗しました');
+    });
+  }
+  };
+
+  setInterval(reloadMessages,5000);
 });

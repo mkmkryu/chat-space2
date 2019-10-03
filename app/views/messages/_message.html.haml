@@ -6,6 +6,7 @@
 			= message.created_at.strftime("%Y/%m/%d %H:%M")
 	.right-item__message
 		- if message.content.present?
-			%p.right-item__message-content
+			%p.right-item__message-content{"data-id": message.id}
+
 				= message.content
 		= image_tag message.image.url, class: 'right-item__message-image' if message.image.present?

@@ -25,10 +25,8 @@ $(function(){
 
   $("#new_message").on("submit",function(e){
     e.preventDefault();
-    var formData = new FormData(this);
-    console.log(url);    
+    var formData = new FormData(this);   
     var url = $(this).attr('action');
-    console.log(url);
     $.ajax({
       type: "POST",
       url: url,
@@ -54,7 +52,6 @@ $(function(){
   var reloadMessages = function() {
     if(document.URL.match(/messages/)){
     last_message_id = $('.right-item__message-content').last().data('id');
-    console.log(last_message_id);
     $.ajax({
       //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
       url: 'api/messages',

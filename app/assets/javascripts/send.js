@@ -44,7 +44,8 @@ $(function(){
     })
     
     .fail(function(){
-			alert("メッセージの送信に失敗しました。");
+      alert("メッセージの送信に失敗しました。");
+      $('input').prop('disabled', false);
     })
   })
 
@@ -69,6 +70,7 @@ $(function(){
     })
     .fail(function() {
       alert('自動更新に失敗しました');
+
     });
   }
   };
